@@ -1,4 +1,11 @@
 const fastify = require('fastify')({logger: true})
+fastify.register(require('fastify-swagger'),{
+  exposeRoute: true,
+  routePrefix: '/docs',
+  swagger:{
+    info:{title:'fastiy-api'},
+  },
+})
 const PORT = 5000
 fastify.register(require('./routes/items'))
 
